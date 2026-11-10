@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SyncBridge | File Sharing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <span class="logo-icon">↔</span>
+            <h1>SyncBridge</h1>
+        </div>
+        <p>Simple. Fast. Connected.</p>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <h2>Your files, connected.</h2>
+            <p>Transfer files between your phone and laptop over Wi-Fi.</p>
+            <div id="serverStatus" class="status">
+                Checking server connection...
+            </div>
+        </section>
+
+        <section class="upload-section">
+            <h2>Send a file to your laptop</h2>
+            <p>Select a file from your device to upload.</p>
+
+            <form id="uploadForm">
+                <label for="fileInput" class="file-label">
+                    📁 Choose a file
+                </label>
+
+                <input type="file" id="fileInput" required>
+
+                <p id="selectedFile">No file selected</p>
+
+                <button type="submit" id="uploadButton">
+                    Upload File
+                </button>
+            </form>
+
+            <p id="uploadMessage"></p>
+        </section>
+
+        <section class="files-section">
+            <div class="section-heading">
+                <div>
+                    <h2>Received Files</h2>
+                    <p>Your uploaded files appear here.</p>
+                </div>
+
+                <button id="refreshButton" type="button">
+                    ↻ Refresh
+                </button>
+            </div>
+
+            <div id="filesList">
+                Loading files...
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>SyncBridge &copy; 2026 | Connected through your local Wi-Fi</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

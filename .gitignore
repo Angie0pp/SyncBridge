@@ -1,0 +1,28 @@
+
+# Python virtual environment
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Uploaded personal files
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# SQLite database
+database/*.db
+database/*.sqlite
+database/*.sqlite3
+
+# Environment variables and secrets
+.env
+.env.*
+
+# Editor and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
