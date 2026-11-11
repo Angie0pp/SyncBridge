@@ -26,3 +26,5 @@ database/*.sqlite3
 .idea/
 .DS_Store
 Thumbs.db
+# Flask secret key
+backend/instance/

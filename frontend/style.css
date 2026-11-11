@@ -239,3 +239,50 @@ footer {
         display: inline-block;
     }
 }
+
+/* Individual file delete button */
+.delete-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+.delete-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Clear all files button */
+.file-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px 0;
+}
+
+.delete-all-button {
+    background-color: #b83232;
+    color: white;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.delete-all-button:hover {
+    background-color: #8f2424;
+}
+
+.delete-all-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

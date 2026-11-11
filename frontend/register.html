@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | SyncBridge</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .auth-container {
+            max-width: 430px;
+            margin: 60px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+        .auth-container h2 { text-align: center; }
+        .auth-container input {
+            width: 100%;
+            padding: 13px;
+            margin: 8px 0 18px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .auth-container button {
+            width: 100%;
+            padding: 13px;
+            border: 0;
+            border-radius: 8px;
+            background: #5146d8;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .auth-container a { color: #5146d8; }
+        .message { padding: 10px; margin-bottom: 12px; border-radius: 7px; }
+        .error { background: #ffe5e5; color: #a00000; }
+        .success { background: #e4f8e9; color: #176b2c; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <span class="logo-icon">↔</span>
+            <h1>SyncBridge</h1>
+        </div>
+        <p>Simple. Fast. Connected.</p>
+    </header>
+
+    <main class="auth-container">
+        <h2>Create your account</h2>
+        <p>Register to start sharing files privately.</p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <div class="message {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('register') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+            <label for="username">Username</label>
+            <input
+                type="text"
+                id="username"
+                name="username"
+                minlength="3"
+                maxlength="30"
+                pattern="[A-Za-z0-9_]+"
+                autocomplete="username"
+                required
+            >
+
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                minlength="10"
+                autocomplete="new-password"
+                required
+            >
+
+            <label for="confirm_password">Confirm password</label>
+            <input
+                type="password"
+                id="confirm_password"
+                name="confirm_password"
+                minlength="10"
+                autocomplete="new-password"
+                required
+            >
+
+            <button type="submit">Create Account</button>
+        </form>
+
+        <p style="text-align:center; margin-top:20px;">
+            Already have an account?
+            <a href="{{ url_for('login') }}">Log in</a>
+        </p>
+    </main>
+
+</body>
+</html>

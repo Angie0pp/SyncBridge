@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>SyncBridge | File Sharing</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,10 +12,16 @@
 <body>
 
     <header class="header">
+        <form action="{{ url_for('logout') }}" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button type="submit">Log Out</button>
+        </form>
+
         <div class="logo">
             <span class="logo-icon">↔</span>
             <h1>SyncBridge</h1>
         </div>
+
         <p>Simple. Fast. Connected.</p>
     </header>
 
@@ -23,6 +30,7 @@
         <section class="welcome">
             <h2>Your files, connected.</h2>
             <p>Transfer files between your phone and laptop over Wi-Fi.</p>
+
             <div id="serverStatus" class="status">
                 Checking server connection...
             </div>
@@ -50,6 +58,7 @@
         </section>
 
         <section class="files-section">
+
             <div class="section-heading">
                 <div>
                     <h2>Received Files</h2>
@@ -61,9 +70,20 @@
                 </button>
             </div>
 
+            <div class="file-actions">
+                <button
+                    id="clearFilesButton"
+                    type="button"
+                    class="delete-all-button"
+                >
+                    🗑 Clear All Files
+                </button>
+            </div>
+
             <div id="filesList">
                 Loading files...
             </div>
+
         </section>
 
     </main>
